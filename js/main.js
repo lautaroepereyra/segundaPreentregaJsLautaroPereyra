@@ -1,21 +1,25 @@
-const nombres = []; // array de nombres
-const apellidos = []; // array de apellidos
-const nombreCompleto = nombres.concat(apellidos);
-let btnEnviar = document.getElementById("btnEnviar");
+const nombres = {nombre:prompt("Ingrese su nombre y apellido").toUpperCase(), edad:prompt("Ingrese su Edad")};
+const domicilio = {nombreCalle:prompt("Ingrese su domicilio"), alturaCalle:prompt("Altura de domicilio")};
 
-const elNombre = () => {
-    let nombre = document.getElementById("nombre");
-    console.log(nombre);
+/* console.log(nombres);
+console.log(domicilio);
+ */
 
-    if (nombre.value == "") {
-        alert("Ingrese un nombre");
+class Persona{
+    constructor (nombres, datosUbicacion) {
+        this.nombrePersona = nombres.nombre;
+        this.edadPersona = nombres.edad;
+        this.calle = datosUbicacion.nombreCalle;
+        this.altura = datosUbicacion.alturaCalle;
     }
 
-    const nuevoNombre = {titulo:nombre.value, completada:false}
-    console.log(nuevoNombre);
-    nombres.push(nuevoNombre);
-    console.log(nombres);
-
+    mostrarDatos () {
+        return "Nombre: " + this.nombrePersona + "Edad: " + this.edadPersona;
+    }
 }
 
-btnEnviar.addEventListener("click", nombres);
+const nuevaPersona = new Persona(nombres, domicilio);
+// console.log(nuevaPersona);
+
+const Yo = [nuevaPersona];
+console.log(Yo);
